@@ -1,11 +1,11 @@
 # Benchmarking_Genome_Assembly_Tools
 
-# Introduction
+### Introduction
 
-# Objective
+### Objective
 
-# Dependencies
+### Dependencies
 
-# Run 
+### Run 
 
-# Results
+### Results
