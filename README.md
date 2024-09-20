@@ -34,7 +34,7 @@ conda install biobuilds::allpathslg
 ### Dependencies
 1. Conda
 2. Bioconda
-3. 
+3. SRA Toolkit
 ### Run 
 
 ### Results
