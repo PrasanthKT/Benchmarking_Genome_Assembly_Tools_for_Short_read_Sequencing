@@ -16,9 +16,25 @@ Evaluate assembly performance based on:
 5. Provide a comprehensive comparison to guide tool selection for E. coli and similar bacterial genome projects
 6. Identify trade-offs between assembly quality and computational efficiency
 
+### Tools selcted for benchmarking
+1. SPAdes
+2. Velvet
+3. AByss
+4. SOAPdenovo2
+5. ALLPATHS-LG
 
+### Install the above tools
+```bash
+conda install -c bioconda spades
+conda install -c bioconda velvet
+conda install -c bioconda abyss
+conda install -c bioconda soapdenovo2
+conda install biobuilds::allpathslg
+```
 ### Dependencies
-
+1. Conda
+2. Bioconda
+3. 
 ### Run 
 
 ### Results
