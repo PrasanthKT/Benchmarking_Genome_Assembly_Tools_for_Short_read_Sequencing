@@ -41,6 +41,7 @@ conda install -c bioconda soapdenovo2
 2. Bioconda
 3. SRA Toolkit
 ```bash
+conda install -c bioconda sra-tools
 ```
 ### Run 
 
