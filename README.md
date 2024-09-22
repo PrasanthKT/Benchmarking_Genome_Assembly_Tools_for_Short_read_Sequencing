@@ -2,13 +2,16 @@
 
 ### Introduction
 Genome assembly is the process of reconstructing the original DNA sequence of an organism's genome from fragmented sequencing reads. It involves piecing together millions of short DNA sequences to recreate longer contiguous sequences that represent chromosomes or large genomic regions.
+
 1. De novo assembly: Reconstructing the genome sequence without using a reference genome.
 2. Reference-guided assembly: Using a closely related species' genome as a template to guide the assembly process.
+
 Genome assembly tools, also known as assemblers, are software programs designed to perform this complex task. They employ various algorithms and strategies to overcome challenges like repetitive sequences, sequencing errors, and uneven coverage.
 
 ### Objective
-This project aims to benchmark various genome assembly tools using an E. coli dataset. The goals is  to:
-Evaluate assembly performance based on:
+This project aims to benchmark various genome assembly tools using an E. coli dataset. The objectves are to
+Evaluate performance of each tool based on:
+
 1. Execution time
 2. Memory usage
 3. Computational resource utilization
@@ -21,20 +24,22 @@ Evaluate assembly performance based on:
 2. Velvet
 3. AByss
 4. SOAPdenovo2
-5. ALLPATHS-LG
 
-### Install the above tools
+Out of all the above SPAdes, Velvet and ABYss are De bruijin graph based genome assembly tools and SOAPDenovo2 is based on Overlap layout consensus genome assembly tool but all the tools are short read sequencing assemblers, since the selected genome type is also a short read sequecing of genome assembly tools. So performed becnhmarking of all these tools on E.Coli Data to evaluate the above metioned parameters.
+
+### Installation
 ```bash
 conda install -c bioconda spades
 conda install -c bioconda velvet
 conda install -c bioconda abyss
 conda install -c bioconda soapdenovo2
-conda install biobuilds::allpathslg
 ```
 ### Dependencies
 1. Conda
 2. Bioconda
 3. SRA Toolkit
+```bash
+```
 ### Run 
 
 ### Results
