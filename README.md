@@ -10,14 +10,16 @@ Genome assembly tools, also known as assemblers, are software programs designed 
 
 ### Objective
 This project aims to benchmark various genome assembly tools using an E. coli dataset. The objectves are to
-Evaluate performance of each tool based on:
 
-1. Execution time
-2. Memory usage
-3. Computational resource utilization
-4. Assembly quality (contiguity, completeness, accuracy)
-5. Provide a comprehensive comparison to guide tool selection for E. coli and similar bacterial genome projects
-6. Identify trade-offs between assembly quality and computational efficiency
+1. Evaluate performance of each tool based on:
+
+Execution time
+Memory usage
+Computational resource utilization
+Assembly quality (contiguity, completeness, accuracy)
+
+2. Provide a comprehensive comparison to guide tool selection for E. coli and similar bacterial genome projects
+3. Identify trade-offs between assembly quality and computational efficiency
 
 ### Tools selcted for benchmarking
 1. SPAdes
