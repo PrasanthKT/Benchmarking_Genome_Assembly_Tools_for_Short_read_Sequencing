@@ -90,11 +90,3 @@ The main metrics that were taken into consideration include:
 3. Total Length and Longest Contig: Indicates the overall assembly size and the size of the largest contig.
 4. Number of Contigs: The total number of contigs generated in the assembly.
 5. Computational and Memory Efficiency: These metrics were obtained from the job outputs on the HPC system.
-
-### Mapping Assembly to Reference Genome
-To validate the assembly, it was mapped to the gold-standard E. coli genome using BWA and analyzed further. This step ensures that the assembled genome matches the known reference and highlights any misassemblies.
-
-```
-bwa index reference_genome.fasta
-bwa mem reference_genome.fasta SRR1770413_1.fastq SRR1770413_2.fastq > alignment.sam
-```
