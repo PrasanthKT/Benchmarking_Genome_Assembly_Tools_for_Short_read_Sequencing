@@ -43,6 +43,7 @@ conda install -c bioconda soapdenovo2
 4. QUAST (Quality Assessment tools for genome assembly)
 ```bash
 conda install -c bioconda sra-tools
+conda install -c bioconda quast
 ```
 ### Run 
 
