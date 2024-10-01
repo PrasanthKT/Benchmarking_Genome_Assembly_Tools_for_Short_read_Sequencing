@@ -67,7 +67,12 @@ spades.py --careful -k 21,31,41,51,61,71,81,91,101 -1 SRR1770413_1.fastq -2 SRR1
 5. Quality Assessment: The assemblies were analyzed using QUAST for standard metrics such as N50, GC content, and total contig length.
 
 ### Results
-Deatiled assembly results are present in the repository Results.xlsx.
-The main metrics that were taken into consideration was N50, N90, GC content, Total Length Longest contig and contigs which are mostly commonly used metrics and the computational and memory efficiency were taken from the outputs from the HPC, for the compuational and the memory efficiecny. The compuatational parameters were same for all the tools assembly. 
+Detailed assembly results are present in the repository as Results.xlsx. 
+The main metrics that were taken into consideration include:
+1. N50 and N90: These metrics measure the contiguity of the assembly.
+2. GC Content: Percentage of GC content in the assembly.
+3. Total Length and Longest Contig: Indicates the overall assembly size and the size of the largest contig.
+4. Number of Contigs: The total number of contigs generated in the assembly.
+5. Computational and Memory Efficiency: These metrics were obtained from the job outputs on the HPC system.
 
 To check if the assembly is by far good or not, this was mapped to the gold standard ecoli genome using BWA and gave a final check for the assembly output which. 
