@@ -82,7 +82,7 @@ spades.py --careful -k 21,31,41,51,61,71,81,91,101 -1 SRR1770413_1.fastq -2 SRR1
 4. Quality Assessment: The assemblies were analyzed using QUAST for standard metrics such as N50, GC content, and total contig length.
 
 ### Results
-Detailed assembly results are present in the repository as ```Results.xlsx``` 
+Detailed assembly results are present in the repository as ```Results.xlsx``` and in the Quast_Results directory
 The main metrics that were taken into consideration include:
 1. N50 and N90: These metrics measure the contiguity of the assembly.
 2. GC Content: Percentage of GC content in the assembly.
