@@ -47,27 +47,42 @@ conda install -c bioconda sra-tools
 conda install -c bioconda quast
 ```
 ### Workflow Summary
-1. Data Download: Sequences were downloaded from NCBI-SRA using prefetch and converted to FASTQ using fastq-dump. ``` prefetch SRR1770413``` ```fastq-dump --split-files SRR1770413.sra```
-2. Quality Control: FASTQC was used to assess the quality of the paired-end reads. ``` fastqc SRR1770413_1.fastq -o Fastqc_results/
-fastqc SRR1770413_2.fastq -o Fastqc_results/```
-3. Genome Assembly: Genome assembly was performed using multiple tools (Velvet, SPAdes, SOAPdenovo, ALLPATHS-LG, ABYSS) across a range of k-mer sizes (21-127). The assemblies were    benchmarked for quality, time, and computational efficiency.
+1. Data Download: Sequences were downloaded from NCBI-SRA using ```prefetch``` and converted to FASTQ using ```fastq-dump```
+```
+prefetch SRR1770413
+fastq-dump --split-files SRR1770413.sra
+```
+2. Quality Control: FASTQC was used to assess the quality of the paired-end reads.
+ ```
+fastqc SRR1770413_1.fastq -o Fastqc_results/
+fastqc SRR1770413_2.fastq -o Fastqc_results/
+```
+3. Genome Assembly: Genome assembly was performed using multiple tools (Velvet, SPAdes, SOAPdenovo, ALLPATHS-LG, ABYSS) across a range of k-mer sizes (21-127).
+
+Velvet:
 ```
 velveth velvet_output 31 -shortPaired -fastq -separate SRR1770413_1.fastq SRR1770413_2.fastq
 velvetg velvet_output -exp_cov auto -cov_cutoff auto
 ```
+
+SOAPdenovo
 ```
 SOAPdenovo-63mer all -s soapdenovo.config -K 63 -R -o soapdenovo_output/soapdenovo 
 ```
+
+ABYss
 ```
 abyss-pe k=41 name=abyss_output in='SRR1770413_1.fastq SRR1770413_2.fastq'
 ```
+
+SPAdes
 ```
 spades.py --careful -k 21,31,41,51,61,71,81,91,101 -1 SRR1770413_1.fastq -2 SRR1770413_2.fastq -o spades_output
 ```
-5. Quality Assessment: The assemblies were analyzed using QUAST for standard metrics such as N50, GC content, and total contig length.
+4. Quality Assessment: The assemblies were analyzed using QUAST for standard metrics such as N50, GC content, and total contig length.
 
 ### Results
-Detailed assembly results are present in the repository as Results.xlsx. 
+Detailed assembly results are present in the repository as ```Results.xlsx``` 
 The main metrics that were taken into consideration include:
 1. N50 and N90: These metrics measure the contiguity of the assembly.
 2. GC Content: Percentage of GC content in the assembly.
@@ -75,4 +90,10 @@ The main metrics that were taken into consideration include:
 4. Number of Contigs: The total number of contigs generated in the assembly.
 5. Computational and Memory Efficiency: These metrics were obtained from the job outputs on the HPC system.
 
-To check if the assembly is by far good or not, this was mapped to the gold standard ecoli genome using BWA and gave a final check for the assembly output which. 
+### Mapping Assembly to Reference Genome
+To validate the assembly, it was mapped to the gold-standard E. coli genome using BWA and analyzed further. This step ensures that the assembled genome matches the known reference and highlights any misassemblies.
+
+```
+bwa index reference_genome.fasta
+bwa mem reference_genome.fasta SRR1770413_1.fastq SRR1770413_2.fastq > alignment.sam
+```
