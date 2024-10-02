@@ -82,7 +82,7 @@ spades.py --careful -k 21,31,41,51,61,71,81,91,101 -1 SRR1770413_1.fastq -2 SRR1
 4. Quality Assessment: The assemblies were analyzed using QUAST for standard metrics such as N50, GC content, and total contig length.
 
 ### Results
-Detailed assembly results are present in the repository as ```Results.xlsx``` and in the Quast_Results directory
+Detailed assembly results are present in the repository as ```Results.xlsx``` and in the ```Quast_Results``` directory
 
 The main metrics that were taken into consideration include:
 1. N50 and N90: These metrics measure the contiguity of the assembly.
@@ -90,3 +90,17 @@ The main metrics that were taken into consideration include:
 3. Total Length and Longest Contig: Indicates the overall assembly size and the size of the largest contig.
 4. Number of Contigs: The total number of contigs generated in the assembly.
 5. Computational and Memory Efficiency: These metrics were obtained from the job outputs on the HPC system.
+
+### Conclusion
+1. Workflow Consistency: All tools followed the same workflow, starting with the smallest k-mer and increasing to k=127, with identical memory and node allocation on the HPC         system.
+2. Assembly Differences: Differences in results are due to the unique algorithms each tool employs. The results are most applicable to small bacterial genomes like E. coli.
+3. N50 Value: Velvet produced the highest N50 value, indicating better contiguity. It uses the de Bruijn graph approach, making it highly effective for small genomes.
+4. Longest Contig: Velvet assembled the longest contig and had the highest total assembly length at k=127, outperforming the other tools.
+   Computational Efficiency: Velvet took the longest time for assembly, reflecting the trade-off between computational time and assembly quality.
+
+Tool Summary:
+Velvet: Best N50, longest contig, highest total length, but most time-consuming.
+SPAdes and ABySS: Balanced between quality and computational efficiency.
+SOAPdenovo2: Decent results but lagged in N50 and assembly size.
+
+In summary, Velvet delivered the best assembly results but required more computational resources, making it ideal for small genomes like E. coli.
