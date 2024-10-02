@@ -2,7 +2,7 @@
 
 ### Introduction
 Genome assembly is the process of reconstructing the original DNA sequence of an organism's genome from fragmented sequencing reads. It involves piecing together millions of short DNA sequences to recreate longer contiguous sequences that represent chromosomes or large genomic regions.
-
+There are two types of assemblies:
 1. De novo assembly: Reconstructing the genome sequence without using a reference genome.
 2. Reference-guided assembly: Using a closely related species' genome as a template to guide the assembly process.
 
@@ -27,23 +27,25 @@ Assembly quality (contiguity, completeness, accuracy)
 3. AByss
 4. SOAPdenovo2
 
-Out of all the above SPAdes, Velvet and ABYss are De bruijin graph based genome assembly tools and SOAPDenovo2 is based on Overlap layout consensus genome assembly tool but all the tools are short read sequencing assemblers, since the selected genome type is also a short read sequecing of genome assembly tools. So performed becnhmarking of all these tools on E.Coli Data to evaluate the above metioned parameters.
-
-### Installation
+### Installation of the assemblers
 ```bash
 conda install -c bioconda spades
 conda install -c bioconda velvet
 conda install -c bioconda abyss
 conda install -c bioconda soapdenovo2
 ```
+Out of all the above SPAdes, Velvet and ABYss are De bruijin graph based genome assembly tools and SOAPDenovo2 is based on Overlap layout consensus genome assembly tool but all the tools are short read sequencing assemblers, since the selected genome type is also a short read sequecing of genome assembly tools. So performed becnhmarking of all these tools on E.Coli Data to evaluate the above metioned parameters.
+
 ### Dependencies
 1. Conda
 2. Bioconda
 3. SRA Toolkit
 4. FASTQC
-5. QUAST (Quality Assessment tools for genome assembly)
 ```bash
 conda install -c bioconda sra-tools
+```
+5. QUAST (Quality Assessment tools for genome assembly)
+```bash
 conda install -c bioconda quast
 ```
 ### Workflow Summary
@@ -52,12 +54,13 @@ conda install -c bioconda quast
 prefetch SRR1770413
 fastq-dump --split-files SRR1770413.sra
 ```
-2. Quality Control: FASTQC was used to assess the quality of the paired-end reads.
+2. Quality Control: FASTQC was used to assess the quality of the paired-end reads. The fastqc results are located in the ```FASTQC``` directory.
  ```
 fastqc SRR1770413_1.fastq -o Fastqc_results/
 fastqc SRR1770413_2.fastq -o Fastqc_results/
 ```
-3. Genome Assembly: Genome assembly was performed using multiple tools (Velvet, SPAdes, SOAPdenovo, ALLPATHS-LG, ABYSS) across a range of k-mer sizes (21-127).
+3. Genome Assembly: Genome assembly was performed using multiple tools (Velvet, SPAdes, SOAPdenovo,ABYSS) across a range of k-mer sizes (21-127).
+The following commands are used for genome assembly with individual k-mers. However, multiple k-mer assemblies can be executed simultaneously on the HPC. The job scripts located in the ```Job_Scripts``` directory allow you to run assemblies for all desired k-mers at once.
 
 Velvet:
 ```
