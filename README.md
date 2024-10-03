@@ -100,5 +100,4 @@ Tool Summary:
 2. The GC content is fairly consistent across all assemblers, aligning with the expected GC content for E. coli. There are no significant differences in GC content between the tools.
 3. Velvet again performs better, having the longest contig and total length in most cases, especially at larger k-mer sizes. SOAPdenovo and Abyss produce shorter total lengths and longest contigs. Velvet produces fewer contigs, indicating that it is able to assemble the genome into larger, more continuous sequences. SOAPdenovo and Abyss generate more contigs, which reflects a more fragmented assembly.
 
-Summary:
 Velvet consistently outperforms SOAPdenovo and Abyss in terms of assembly contiguity (N50, N90) and produces longer contigs with fewer fragments. The computational trade-off is that Velvet may take more time and resources, but it provides better overall assembly quality for E. coli. SOAPdenovo and Abyss could be useful when computational resources are more limited or when a quick, rough assembly is needed. However, for high-quality assemblies, Velvet is the preferred choice.
