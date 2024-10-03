@@ -22,19 +22,17 @@ Assembly quality (contiguity, completeness, accuracy)
 3. Identify trade-offs between assembly quality and computational efficiency
 
 ### Tools selcted for benchmarking
-1. SPAdes
-2. Velvet
-3. AByss
-4. SOAPdenovo2
+1. Velvet
+2. AByss
+3. SOAPdenovo2
 
 ### Installation of the assemblers
 ```bash
-conda install -c bioconda spades
 conda install -c bioconda velvet
 conda install -c bioconda abyss
 conda install -c bioconda soapdenovo2
 ```
-Out of all the above SPAdes, Velvet and ABYss are De bruijin graph based genome assembly tools and SOAPDenovo2 is based on Overlap layout consensus genome assembly tool but all the tools are short read sequencing assemblers, since the selected genome type is also a short read sequecing of genome assembly tools. So performed becnhmarking of all these tools on E.Coli Data to evaluate the above metioned parameters.
+Out of all the above Velvet and ABYss are De bruijin graph based genome assembly tools and SOAPDenovo2 is based on Overlap layout consensus genome assembly tool but all the tools are short read sequencing assemblers, since the selected genome type is also a short read sequecing of genome assembly tools. So performed becnhmarking of all these tools on E.Coli Data to evaluate the above metioned parameters.
 
 ### Dependencies
 1. Conda
@@ -78,10 +76,6 @@ ABYss
 abyss-pe k=41 name=abyss_output in='SRR1770413_1.fastq SRR1770413_2.fastq'
 ```
 
-SPAdes
-```
-spades.py --careful -k 21,31,41,51,61,71,81,91,101 -1 SRR1770413_1.fastq -2 SRR1770413_2.fastq -o spades_output
-```
 4. Quality Assessment: The assemblies were analyzed using QUAST for standard metrics such as N50, GC content, and total contig length.
 
 ### Results
