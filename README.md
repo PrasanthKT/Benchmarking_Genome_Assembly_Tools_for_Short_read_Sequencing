@@ -96,8 +96,9 @@ The main metrics that were taken into consideration include:
    Computational Efficiency: Velvet took the longest time for assembly, reflecting the trade-off between computational time and assembly quality.
 
 Tool Summary:
-Velvet: Best N50, longest contig, highest total length, but most time-consuming.
-SPAdes and ABySS: Balanced between quality and computational efficiency.
-SOAPdenovo2: Decent results but lagged in N50 and assembly size.
+1. Velvet shows a higher N50 and N90 compared to SOAPdenovo and Abyss across different k-mer sizes. This indicates that Velvet assemblies are more contiguous. SOAPdenovo and Abyss generally have lower N50 and N90 values, showing less contiguous assemblies.
+2. The GC content is fairly consistent across all assemblers, aligning with the expected GC content for E. coli. There are no significant differences in GC content between the tools.
+3. Velvet again performs better, having the longest contig and total length in most cases, especially at larger k-mer sizes. SOAPdenovo and Abyss produce shorter total lengths and longest contigs. Velvet produces fewer contigs, indicating that it is able to assemble the genome into larger, more continuous sequences. SOAPdenovo and Abyss generate more contigs, which reflects a more fragmented assembly.
 
-In summary, Velvet delivered the best assembly results but required more computational resources, making it ideal for small genomes like E. coli.
+Summary:
+Velvet consistently outperforms SOAPdenovo and Abyss in terms of assembly contiguity (N50, N90) and produces longer contigs with fewer fragments. The computational trade-off is that Velvet may take more time and resources, but it provides better overall assembly quality for E. coli. SOAPdenovo and Abyss could be useful when computational resources are more limited or when a quick, rough assembly is needed. However, for high-quality assemblies, Velvet is the preferred choice.
